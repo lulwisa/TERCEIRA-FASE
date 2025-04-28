@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public bool isJumping; // saber se ele esta pulando ou nao
     public bool doubleJump; // saber se ele esta dando um pulo duplo ou nao
     public float jump = 10f; // é a força do pulo do personagem
+    public int lifes = 3;
 
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
@@ -44,6 +45,9 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.layer == 6) { // 6 é o layer que eu criei para Ground
             isJumping = false;
         }
+        if(collision.gameObject.tag == "Lava"){
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+        }
     }
 
     // metodo para detectar sempre que o personagem deixar de tocar em alguma coisa
@@ -53,6 +57,5 @@ public class Player : MonoBehaviour {
         }
     }
 
-    
 
 }
