@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 8d4ee205b90bd774697bef44e66bddc9
+guid: ef775ab2cc840f549a549a74bb20760c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4763415714078566847
-    second: banner_0
+      213: -2024334456871629720
+    second: hatch_0
+  - first:
+      213: 5599988039434491785
+    second: hatch_1
+  - first:
+      213: 1462552665366891476
+    second: hatch_2
+  - first:
+      213: -1417175158222480148
+    second: hatch_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: banner_0
+      name: hatch_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 4
         y: 3
-        width: 44
-        height: 48
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +123,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb9aa23ba5d0b1240800000000000000
-      internalID: 4763415714078566847
+      spriteID: 86c459f698e18e3e0800000000000000
+      internalID: -2024334456871629720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hatch_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 3
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 987ddeca37727bd40800000000000000
+      internalID: 5599988039434491785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hatch_2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 3
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db8e7476e70c4410800000000000000
+      internalID: 1462552665366891476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hatch_3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 3
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec14adb3be255ce0800000000000000
+      internalID: -1417175158222480148
       vertices: []
       indices: 
       edges: []
@@ -130,8 +202,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      banner_0: 4763415714078566847
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 8d4ee205b90bd774697bef44e66bddc9
+guid: 615549ac991b86941b0b7b6cee151215
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4763415714078566847
-    second: banner_0
+      213: 8795366620419746748
+    second: crack_0
+  - first:
+      213: 5066528421949677919
+    second: crack_1
+  - first:
+      213: 5609880128603421608
+    second: crack_2
+  - first:
+      213: -8724406247229049297
+    second: crack_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: banner_0
+      name: crack_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 4
         y: 3
-        width: 44
-        height: 48
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +123,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb9aa23ba5d0b1240800000000000000
-      internalID: 4763415714078566847
+      spriteID: cbb6277675b6f0a70800000000000000
+      internalID: 8795366620419746748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crack_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 3
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f512bb291ccef4640800000000000000
+      internalID: 5066528421949677919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crack_2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 3
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8abfde9214c4add40800000000000000
+      internalID: 5609880128603421608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crack_3
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 3
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26b6b5fdbeace680800000000000000
+      internalID: -8724406247229049297
       vertices: []
       indices: 
       edges: []
@@ -130,8 +202,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      banner_0: 4763415714078566847
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
