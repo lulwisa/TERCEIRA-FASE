@@ -30,9 +30,9 @@ public class MusicManager : MonoBehaviour {
 
     // funcao para parar de tocar a musica
     public void StopMusic() {
-        if (musicSource.isPlaying) {
-        musicSource.Stop();
-        }
+        // if (musicSource.isPlaying) {
+        //     musicSource.Stop();
+        // }
     }
 
 

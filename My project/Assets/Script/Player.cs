@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour {
 
@@ -45,8 +47,10 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.layer == 6) { // 6 é o layer que eu criei para Ground
             isJumping = false;
         }
-        if(collision.gameObject.tag == "Lava"){
-            Destroy(GameObject.FindGameObjectWithTag("Player"));
+        if(collision.gameObject.tag == "Lava"){ // se ele cai na lava
+            //Destroy(GameObject.FindGameObjectWithTag("Player"));
+            PlayerPrefs.SetString("Pre Historia", SceneManager.GetActiveScene().name); // pega o nome da cena atual e coloca na variavel Pre Historia
+            SceneManager.LoadScene("GameOver");
         }
     }
 
