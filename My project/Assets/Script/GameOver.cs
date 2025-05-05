@@ -17,7 +17,7 @@ public class GameOver : MonoBehaviour {
     }
 
     public void Restart() {
-        string lastLevel = PlayerPrefs.GetString("Pre Historia", "Fase1");
+        string lastLevel = PlayerPrefs.GetString("Fase", "Fase_numero");
         SceneManager.LoadScene(lastLevel);
     }
 

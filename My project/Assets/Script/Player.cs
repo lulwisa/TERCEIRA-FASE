@@ -11,7 +11,9 @@ public class Player : MonoBehaviour {
     public bool isJumping; // saber se ele esta pulando ou nao
     public bool doubleJump; // saber se ele esta dando um pulo duplo ou nao
     public float jump = 10f; // é a força do pulo do personagem
-    public int lifes = 3;
+    public bool inStairs; // saber se o personagem esta em cima da escada
+    public float speedClimb = 4f; // velocidade para escalar a escada
+    public int lifes = 3; // quantidade de vidas
 
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour {
     void Update() {
         Move();
         Jump();
+        Climb();
     }
 
     void Move() {
@@ -43,14 +46,24 @@ public class Player : MonoBehaviour {
         }
     }
 
+    void Climb() {
+        if (inStairs) {
+            Vector3 movement = new Vector3(0f, Input.GetAxis("Vertical"), 0f); // recebe apenas movimentacao lateral (x) - y e z ficam em 0
+            transform.position += movement * Time.deltaTime * speedClimb; // adiciona velocidade
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.layer == 6) { // 6 é o layer que eu criei para Ground
             isJumping = false;
         }
-        if(collision.gameObject.tag == "Lava"){ // se ele cai na lava
-            //Destroy(GameObject.FindGameObjectWithTag("Player"));
-            PlayerPrefs.SetString("Pre Historia", SceneManager.GetActiveScene().name); // pega o nome da cena atual e coloca na variavel Pre Historia
-            SceneManager.LoadScene("GameOver");
+        if(collision.gameObject.tag == "Lava"){ // se ele cair na lava
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse); // para dar um pulinho depois de bater
+            PlayerHealth.Instance.TakeDamage();
+        }
+        if(collision.gameObject.tag == "Espinho") { // se ele cair nos espinhos
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse); // para dar um pulinho depois de bater
+            PlayerHealth.Instance.TakeDamage();
         }
     }
 
@@ -58,6 +71,20 @@ public class Player : MonoBehaviour {
     void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.layer == 6) { // 6 é o layer que eu criei para Ground
             isJumping = true;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) { // trigger eh quando o personagem pode passar por cima no objeto (se fosse uma bola nao teria trigger por exemplo)
+        if(collider.gameObject.layer == 7) { // 7 é o layer criado para Escadas
+            inStairs = true; // variavel na escada passa a ser verdadeiro
+            rb2d.gravityScale = 0f; // deixo a gravidade como 0 para ele nao ficar descendo sozinho
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collider) { // trigger eh quando o personagem pode passar por cima no objeto (se fosse uma bola nao teria trigger por exemplo)
+        if(collider.gameObject.layer == 7) { // 7 é o layer criado para Escadas
+            inStairs = false; // variavel na escada passa a ser falso
+            rb2d.gravityScale = 3f; // deixo a gravidade como 3, que é a padrão do jogo
         }
     }
 

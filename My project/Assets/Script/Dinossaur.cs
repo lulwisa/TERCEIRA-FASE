@@ -50,6 +50,9 @@ public class Dinossaur : MonoBehaviour {
                 rb2d.bodyType = RigidbodyType2D.Kinematic; // setar como kinematic para o dino não cair do mapa
                 Destroy(gameObject, 0.25f); // destruir dino depois de 0.25sec
             }
+            else { // se o dinossauro acertar o player
+                PlayerHealth.Instance.TakeDamage();
+            }
         }
     }
 

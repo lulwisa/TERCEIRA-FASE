@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lava
-  - espinho
   - Escada
+  - Dino
+  - Espinho
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Stairs
   - 
   - 
   - 
