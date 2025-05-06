@@ -12,6 +12,7 @@ public class Dinossaur : MonoBehaviour {
     private Animator anim; // para fazer a animação de morrer
     public Transform headPoint; // objeto que fica em cima para saber se o personagem bateu na cabeça do dinossauro
     public BoxCollider2D boxCollider2D; // para desabilitar depois que morrer
+    private bool isDead = false; // saber se ja morrer e nao colidir duas vezes
 
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
@@ -38,22 +39,22 @@ public class Dinossaur : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col) { // detectar colisao com o player
-        if (col.gameObject.tag == "Player") {
-            float height = col.contacts[0].point.y - headPoint.position.y; // saber se ta batendo na cabeca mesmo
+    void OnCollisionEnter2D(Collision2D collision) { // detectar colisao com o player
+        if(collision.gameObject.tag == "Player") {
+            PlayerHealth.Instance.TakeDamage();
+        }   
+    }
 
-            if (height > 0) { // se estiver batendo na cabeca
-                col.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse); // para dar um pulinho depois de bater
-                speed = 0; // fazer ele parar de andar
-                anim.SetTrigger("death"); // setar animação de morrer
-                boxCollider2D.enabled = false; // desabilitar colisão
-                rb2d.bodyType = RigidbodyType2D.Kinematic; // setar como kinematic para o dino não cair do mapa
-                Destroy(gameObject, 0.25f); // destruir dino depois de 0.25sec
-            }
-            else { // se o dinossauro acertar o player
-                PlayerHealth.Instance.TakeDamage();
-            }
+    public void Die() {
+        if(isDead) {
+            return;
         }
+        isDead = true;
+        speed = 0; // fazer ele parar de andar
+        anim.SetTrigger("death"); // setar animação de morrer
+        boxCollider2D.enabled = false; // desabilitar colisão
+        rb2d.bodyType = RigidbodyType2D.Kinematic; // setar como kinematic para o dino não cair do mapa
+        Destroy(gameObject, 0.25f); // destruir dino depois de 0.25sec
     }
 
 }
