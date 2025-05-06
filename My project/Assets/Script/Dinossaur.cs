@@ -6,7 +6,8 @@ public class Dinossaur : MonoBehaviour {
 
     public float speed = 2f; // velocidade do dinossauro
     public float stap = 5f; // quantidade de passos que ele vai dar até voltar
-    private Vector3 startPosition; // posição inicial
+    private float leftLimit; // x mínimo
+    private float rightLimit; // x máximo
     private int direction = 1; // direção atual: 1 = direita, -1 = esquerda
     private Rigidbody2D rb2d; // me permite manipular qualquer variavel no rigidbody la do inspector
     private Animator anim; // para fazer a animação de morrer
@@ -17,7 +18,10 @@ public class Dinossaur : MonoBehaviour {
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        startPosition = transform.position; // pega a posição inicial
+
+        float startX = transform.position.x; // pega a posicao inicial em X
+        leftLimit  = startX; // seta o limite da esquerda como a posição inicial
+        rightLimit = startX + stap; // seta o limite da direita como a posição final
     }
 
     void Update() {
@@ -25,23 +29,35 @@ public class Dinossaur : MonoBehaviour {
     }
 
     void Move() {
-        transform.position += Vector3.right * direction * speed * Time.deltaTime; // move o dinossauro na direção atual
-        float distanceFromStart = transform.position.x - startPosition.x; // calcula a distancia total percorrida
+        float newX = transform.position.x + direction * speed * Time.deltaTime; // calcula o X
 
-        if (Mathf.Abs(distanceFromStart) >= stap - 0.01f) { // se a distancia percorrida for maior que a distancia setada
-            direction *= -1; // inverte direção
-
-            Vector3 scale = transform.localScale; // variavel para a escala
-            scale.x *= -1; // multiplica por -1 para fazer com que o dinossauro vire a cabeça
-            transform.localScale = scale; // atualiza o valor da escala
-
-            startPosition = transform.position;
+        // se ultrapassar o limite da direita, limita e inverte
+        if (direction == 1 && newX >= rightLimit) {
+            ReverseDirection();
+            newX = rightLimit;
         }
+        // se ultrapassar o limite da esquerda, limita e inverte
+        else if (direction == -1 && newX <= leftLimit) {
+            ReverseDirection();
+            newX = leftLimit;
+        }
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z); // atualiza a posição
+    }
+
+    private void ReverseDirection() { // inverter a direção do dino
+        direction *= -1; // inverte direção
+        Vector3 scale = transform.localScale; // variavel para a escala
+        scale.x *= -1; // multiplica por -1 para fazer com que o dinossauro vire a cabeça
+        transform.localScale = scale; // atualiza o valor da escala
     }
 
     void OnCollisionEnter2D(Collision2D collision) { // detectar colisao com o player
-        if(collision.gameObject.tag == "Player") {
-            PlayerHealth.Instance.TakeDamage();
+        if(isDead) {
+            return;
+        }
+        if(collision.gameObject.tag == "Player") { // se acertar o player
+            ReverseDirection();
+            PlayerHealth.Instance.TakeDamage(); // recebe dano
         }   
     }
 

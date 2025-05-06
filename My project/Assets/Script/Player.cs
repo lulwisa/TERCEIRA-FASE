@@ -54,7 +54,7 @@ public class Player : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.layer == 6) { // 6 é o layer que eu criei para Ground
+        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 9) { // 6 é o layer que eu criei para Ground e 9 para plataforma
             isJumping = false;
         }
         if(collision.gameObject.tag == "Lava"){ // se ele cair na lava
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour {
 
     // metodo para detectar sempre que o personagem deixar de tocar em alguma coisa
     void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.layer == 6) { // 6 é o layer que eu criei para Ground
+        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 9) { // 6 é o layer que eu criei para Ground e 9 para plataforma
             isJumping = true;
         }
     }

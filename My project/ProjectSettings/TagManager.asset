@@ -9,6 +9,7 @@ TagManager:
   - Dino
   - Espinho
   - DinoHead
+  - Plataforma
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - Ground
   - Stairs
-  - 
-  - 
+  - Lava
+  - Plataform
   - 
   - 
   - 
