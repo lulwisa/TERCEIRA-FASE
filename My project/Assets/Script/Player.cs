@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 
     void Move() {
         // O GetAxis ja detecta a movimentacao e teclas, ta pronta na Unity
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); // recebe apenas movimentacao lateral (x) - y e z ficam em 0
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); // recebe apenas movimentacao lateral (x) -> y e z ficam em 0
         transform.position += movement * Time.deltaTime * speed; // adiciona velocidade
     }
 
@@ -63,6 +63,14 @@ public class Player : MonoBehaviour {
         }
         if(collision.gameObject.tag == "Espinho") { // se ele cair nos espinhos
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse); // para dar um pulinho depois de bater
+            PlayerHealth.Instance.TakeDamage();
+        }
+        if(collision.gameObject.tag == "Saw") {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse); // para dar um pulinho depois de bater
+            PlayerHealth.Instance.TakeDamage();
+        }
+        if(collision.gameObject.tag == "Smash") {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 15, ForceMode2D.Impulse); // para dar um empurrão para a esquerda
             PlayerHealth.Instance.TakeDamage();
         }
     }
