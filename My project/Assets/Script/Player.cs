@@ -73,6 +73,12 @@ public class Player : MonoBehaviour {
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 15, ForceMode2D.Impulse); // para dar um empurrão para a esquerda
             PlayerHealth.Instance.TakeDamage();
         }
+        if(collision.gameObject.tag == "Hole") {
+            PlayerHealth.Instance.TakeDamage();
+            PlayerHealth.Instance.TakeDamage();
+            PlayerHealth.Instance.TakeDamage();
+        }
+
     }
 
     // metodo para detectar sempre que o personagem deixar de tocar em alguma coisa
