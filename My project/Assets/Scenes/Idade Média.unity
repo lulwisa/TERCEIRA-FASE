@@ -45734,6 +45734,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1280145326}
     - target: {fileID: 928876764337557038, guid: 0de0a1e6aa80f3446b16ce365045ad27, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.519663
+      objectReference: {fileID: 0}
+    - target: {fileID: 928876764337557038, guid: 0de0a1e6aa80f3446b16ce365045ad27, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.63
       objectReference: {fileID: 0}
@@ -45776,6 +45780,10 @@ PrefabInstance:
     - target: {fileID: 6531420706967181749, guid: 0de0a1e6aa80f3446b16ce365045ad27, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246186814934667268, guid: 0de0a1e6aa80f3446b16ce365045ad27, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47301,20 +47309,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5510178920921829513, guid: 1a2fe476d8a9085408c0afc14406e5a3, type: 3}
   m_PrefabInstance: {fileID: 2290503838419820298}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &925388378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925388377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec1f8ab31456060468283e1266c28ac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  visionRadius: 0
 --- !u!50 &925388379
 Rigidbody2D:
   serializedVersion: 4
@@ -76517,9 +76511,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 822895704890857207, guid: 1a2fe476d8a9085408c0afc14406e5a3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1795118960310956258, guid: 1a2fe476d8a9085408c0afc14406e5a3, type: 3}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123052562254463845, guid: 1a2fe476d8a9085408c0afc14406e5a3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -5.33
       objectReference: {fileID: 0}
     - target: {fileID: 2123052562254463845, guid: 1a2fe476d8a9085408c0afc14406e5a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76565,6 +76567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight
       objectReference: {fileID: 0}
+    - target: {fileID: 8988857395330514417, guid: 1a2fe476d8a9085408c0afc14406e5a3, type: 3}
+      propertyPath: attackRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -76575,9 +76581,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5510178920921829513, guid: 1a2fe476d8a9085408c0afc14406e5a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 925388379}
-    - targetCorrespondingSourceObject: {fileID: 5510178920921829513, guid: 1a2fe476d8a9085408c0afc14406e5a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 925388378}
   m_SourcePrefab: {fileID: 100100000, guid: 1a2fe476d8a9085408c0afc14406e5a3, type: 3}
 --- !u!1001 &5216844982000092718
 PrefabInstance:

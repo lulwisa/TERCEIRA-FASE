@@ -196,9 +196,9 @@ GameObject:
   - component: {fileID: 6145488934182066201}
   - component: {fileID: 7639121281851560450}
   - component: {fileID: 2088473508031146177}
-  - component: {fileID: 6275055249887236834}
   - component: {fileID: 773646193724780075}
-  m_Layer: 0
+  - component: {fileID: 6275055249887236834}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -368,6 +368,23 @@ MonoBehaviour:
   inStairs: 0
   speedClimb: 4
   lifes: 3
+--- !u!114 &773646193724780075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6531420706967181749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99cc362a2e105ca48a0984329989cc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidas: 3
+  iconesVidas:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!95 &6275055249887236834
 Animator:
   serializedVersion: 7
@@ -390,20 +407,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &773646193724780075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6531420706967181749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99cc362a2e105ca48a0984329989cc20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidas: 3
-  iconesVidas:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}

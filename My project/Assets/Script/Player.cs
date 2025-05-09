@@ -14,9 +14,12 @@ public class Player : MonoBehaviour {
     public bool inStairs; // saber se o personagem esta em cima da escada
     public float speedClimb = 4f; // velocidade para escalar a escada
     public int lifes = 3; // quantidade de vidas
+    private bool facingLeft = false; // saber qual lado ta
+    private SpriteRenderer sr; // para rotacionar o player quando vira de lado
 
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update() {
@@ -27,8 +30,17 @@ public class Player : MonoBehaviour {
 
     void Move() {
         // O GetAxis ja detecta a movimentacao e teclas, ta pronta na Unity
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); // recebe apenas movimentacao lateral (x) -> y e z ficam em 0
+        float h = Input.GetAxis("Horizontal");
+        Vector3 movement = new Vector3(h, 0f, 0f); // recebe apenas movimentacao lateral (x) -> y e z ficam em 0
         transform.position += movement * Time.deltaTime * speed; // adiciona velocidade
+        if (h > 0f) {
+            facingLeft = false;
+        }
+        else if (h < 0f) {
+            facingLeft = true;
+        }
+        sr.flipX = facingLeft;
+
     }
 
     void Jump() {
@@ -102,5 +114,12 @@ public class Player : MonoBehaviour {
         }
     }
 
+    // private void OnDrawGizmos() { // apenas representação visual desse raio na unity para testar
+    //     Gizmos.DrawWireSphere(this.transform.position, this.visionRadius);
+    // }
+
+    private void Attack() {
+        //
+    }
 
 }
