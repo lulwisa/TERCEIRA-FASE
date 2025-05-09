@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Knight : MonoBehaviour {
     private Transform target; // variável para saber quem o inimigo vai perseguir
+    private Animator animator; // pode fazer as animações
     public float speed; // velocidade do inimigo
     public float visionRadius; // radio de visão para o inimigo ver o player
     public GameObject attackPoint; // ponto de ataque que vai ser criado na Unity como filho do inimigo
@@ -13,6 +14,7 @@ public class Knight : MonoBehaviour {
     private bool isAtacking = false; // saber se esta na animação de atacar ou não
 
     void Start() {
+        animator = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); // targetar o player para ele seguir
     }
 
@@ -45,10 +47,12 @@ public class Knight : MonoBehaviour {
         transform.localScale = scale;
 
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); // atualizar sua posição para seguir o player
+        animator.SetBool("walk", true);
     }
 
     private void StopMoving() { // função para ele ficar parado quando não ver o player
         // fica parado, não faz nada
+        animator.SetBool("walk", false);
     }
 
     private void OnDrawGizmos() { // apenas representação visual desse raio na unity para testar
@@ -74,6 +78,9 @@ public class Knight : MonoBehaviour {
         }
         isAtacking = true; // seta para true
 
+        animator.SetBool("walk", false);
+        animator.SetTrigger("attack");
+
         Collider2D[] player = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRadius, Player);
         foreach (Collider2D playerGameObject in player) {
             PlayerHealth.Instance.TakeDamage();
@@ -85,5 +92,7 @@ public class Knight : MonoBehaviour {
         isAtacking = false;
         // apenas setar como falso a animação de atacar
     }
+
+    
 
 }
